@@ -10,7 +10,7 @@ import { TodayField } from "@/components/TodayField/today-field";
 import { Button } from "@/components/Button/button";
 import { TodoListModel } from "@/models/todo-list-model";
 
-export const PresentationTodoList = () => {
+export const TodoListView = () => {
   const todoModel = useMemo(() => new TodoListModel(), []);
   const {
     isPending,
