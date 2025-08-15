@@ -1,5 +1,5 @@
 import { Todo } from "@/models/todo-list-model";
-import { Check, ListChecks, Pencil, Plus, Trash2, X } from "lucide-react";
+import { Check, Pencil, Trash2, X } from "lucide-react";
 import { useState } from "react";
 import { EditField } from "../TodoItemEdit/todo-item-edit";
 import { mergeClassNames } from "@/utils/merge-class-names";
@@ -67,20 +67,20 @@ export const TodoItem = ({
 
         {!editing && (
           <div className="flex items-center gap-1">
-            <button
+            <Button
               onClick={() => setEditing(true)}
               className="p-2 rounded-lg hover:bg-white/5 text-slate-300 hover:text-white transition"
               aria-label="Editar tarefa"
             >
               <Pencil className="size-4" aria-hidden />
-            </button>
-            <button
+            </Button>
+            <Button
               onClick={() => onRemove(todo.id)}
               className="p-2 rounded-lg hover:bg-white/5 text-slate-300 hover:text-rose-200 transition"
               aria-label="Remover tarefa"
             >
               <Trash2 className="size-4" aria-hidden />
-            </button>
+            </Button>
           </div>
         )}
       </div>
