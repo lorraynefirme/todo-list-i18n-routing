@@ -42,7 +42,7 @@ export default function LocaleSwitcherSelect({
       )}
     >
       <select
-        className="appearance-none  bg-transparent border-0 cursor-pointer px-9 mr-2.5 py-1.5 focus:outline-none hover:bg-gray-300"
+        className="appearance-none  bg-transparent border-0 cursor-pointer px-9 mr-2.5 py-1.5 focus:outline-none"
         defaultValue={defaultValue}
         disabled={isPending}
         onChange={onSelectChange}
