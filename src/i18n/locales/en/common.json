@@ -1,0 +1,30 @@
+{
+  "TodoList": {
+    "title": "Tasks",
+
+    "filters": {
+      "all": "All",
+      "active": "Active",
+      "done": "Done"
+    },
+
+    "form": {
+      "placeholder": "Add a new task...",
+      "addButton": "Add"
+    },
+
+    "helpers": {
+      "editTask": "Tip: double-click the task to edit.",
+      "noTasksOnFilter": "Nothing around here with that filter.",
+      "noTasksCreated": "No tasks here. How about creating the first one?"
+    },
+
+    "stats": {
+      "done": "done"
+    },
+
+    "actions": {
+      "clear": "Clear done"
+    }
+  }
+}

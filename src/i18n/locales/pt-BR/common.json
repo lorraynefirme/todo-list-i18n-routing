@@ -1,0 +1,30 @@
+{
+  "TodoList": {
+    "title": "Tarefas",
+
+    "filters": {
+      "all": "Todas",
+      "active": "Ativas",
+      "done": "Concluídas"
+    },
+
+    "form": {
+      "placeholder": "Adicionar uma nova tarefa...",
+      "addButton": "Adicionar"
+    },
+
+    "helpers": {
+      "editTask": "Dica: duplo clique na tarefa para editar.",
+      "noTasksOnFilter": "Nada por aqui com esse filtro.",
+      "noTasksCreated": "Sem tarefas por aqui. Que tal criar a primeira?"
+    },
+
+    "stats": {
+      "done": "concluídas"
+    },
+
+    "actions": {
+      "clear": "Limpar concluídas"
+    }
+  }
+}
