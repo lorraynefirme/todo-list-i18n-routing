@@ -9,6 +9,7 @@ import { TodoItem } from "@/components/TodoItem/todo-item";
 import { TodayField } from "@/components/TodayField/today-field";
 import { Button } from "@/components/Button/button";
 import { TodoListModel } from "@/models/todo-list-model";
+import { useTranslations } from "next-intl";
 
 export const TodoListView = () => {
   const todoModel = useMemo(() => new TodoListModel(), []);
@@ -27,6 +28,7 @@ export const TodoListView = () => {
   } = useTodoListViewModel(todoModel);
   const [input, setInput] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
+  const translate = useTranslations("TodoList");
 
   function onSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -43,7 +45,7 @@ export const TodoListView = () => {
           </div>
           <div>
             <h1 className="text-xl md:text-2xl font-semibold text-slate-800 white tracking-tight">
-              Tarefas
+              {translate("title")}
             </h1>
             <TodayField />
           </div>
@@ -64,7 +66,8 @@ export const TodoListView = () => {
               />
             </div>
             <p className="mt-1 text-xs text-slate-800/70">
-              {stats.completed} de {stats.total} concluídas ({stats.pct}%)
+              {stats.completed} de {stats.total} {translate("stats.done")} (
+              {stats.pct}%)
             </p>
           </div>
           <MenuFilter filter={filter} setFilter={setFilter} />
@@ -77,18 +80,20 @@ export const TodoListView = () => {
             ref={inputRef}
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            placeholder="Adicionar nova tarefa..."
-            aria-label="Adicionar nova tarefa"
+            placeholder={translate("form.placeholder")}
+            aria-label={translate("form.placeholder")}
             className="w-full h-11 px-4 rounded-xl bg-slate-900/70 text-slate-100 placeholder:text-slate-400 outline-none border border-white/10 focus:border-pink-400/60 focus:ring-4 focus:ring-pink-500/10 transition"
           />
           <Button
             type="submit"
             disabled={!input.trim() || isPending}
             className="h-11 px-4 rounded-xl inline-flex items-center gap-2 font-medium bg-pink-400/90 hover:bg-pink-400 text-white disabled:opacity-70 disabled:cursor-not-allowed shadow-md hover:shadow-lg transition"
-            aria-label="Adicionar tarefa"
+            aria-label={translate("form.addButton")}
           >
             <Plus className="size-5" aria-hidden />
-            <span className="hidden sm:inline">Adicionar</span>
+            <span className="hidden sm:inline">
+              {translate("form.addButton")}
+            </span>
           </Button>
         </div>
       </form>
@@ -106,8 +111,8 @@ export const TodoListView = () => {
                 transition={{ duration: 0.18 }}
               >
                 {todos.length === 0
-                  ? "Sem tarefas por aqui. Que tal criar a primeira?"
-                  : "Nada por aqui com esse filtro."}
+                  ? translate("helpers.noTasksCreated")
+                  : translate("helpers.noTasksOnFilter")}
               </motion.li>
             )}
 
@@ -135,7 +140,7 @@ export const TodoListView = () => {
 
         <div className="mt-4 flex flex-col sm:flex-row items-center justify-between gap-2 px-2">
           <p className="text-xs text-slate-800">
-            Dica: duplo clique na tarefa para editar.
+            {translate("helpers.editTask")}
           </p>
           <button
             onClick={clearCompleted}
@@ -143,7 +148,7 @@ export const TodoListView = () => {
             className="inline-flex items-center gap-2 text-sm px-3 py-1.5 rounded-lg border border-white/10 bg-pink-900/40 hover:bg-pink-00/70 text-slate-200 disabled:opacity-40 disabled:cursor-not-allowed transition"
           >
             <X className="size-4" aria-hidden />
-            Limpar concluídas
+            {translate("actions.clear")}
           </button>
         </div>
       </div>

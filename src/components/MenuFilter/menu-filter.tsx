@@ -1,4 +1,5 @@
 import { FilterStatus } from "@/viewModels/use-todo-list-view-model";
+import { useTranslations } from "next-intl";
 
 const statusOptions: { key: FilterStatus; label: string }[] = [
   { key: "all", label: "Todas" },
@@ -12,6 +13,8 @@ export const MenuFilter = ({
   filter: FilterStatus;
   setFilter: (filter: FilterStatus) => void;
 }) => {
+  const translate = useTranslations("TodoList");
+
   return (
     <div className="inline-flex rounded-xl border border-white/10 bg-slate-900/60 p-1">
       {statusOptions.map(({ key: statusFilter, label }) => (
@@ -24,7 +27,7 @@ export const MenuFilter = ({
               : "text-slate-300 hover:text-white hover:bg-white/5"
           }`}
         >
-          {label}
+          {translate("filters." + statusFilter)}
         </button>
       ))}
     </div>

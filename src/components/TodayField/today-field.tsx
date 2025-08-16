@@ -1,6 +1,10 @@
+import { useLocale } from "next-intl";
+
 export const TodayField = () => {
+  const locale = useLocale();
+
   const today = new Date();
-  const formatter = new Intl.DateTimeFormat("pt-BR", {
+  const formatter = new Intl.DateTimeFormat(locale, {
     weekday: "long",
     day: "2-digit",
     month: "long",
