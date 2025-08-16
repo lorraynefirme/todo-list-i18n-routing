@@ -26,5 +26,9 @@
     "actions": {
       "clear": "Clear done"
     }
+  },
+
+  "NotFoundPage": {
+    "title": "Page not found"
   }
 }

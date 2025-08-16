@@ -26,5 +26,9 @@
     "actions": {
       "clear": "Limpar concluídas"
     }
+  },
+
+  "NotFoundPage": {
+    "title": "Página não encontrada"
   }
 }
